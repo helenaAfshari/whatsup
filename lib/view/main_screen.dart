@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:whatsup/constance/text_style.dart';
+import 'package:whatsup/constance/whatsup_color.dart';
 import 'package:whatsup/controller/user_contact_controller.dart';
 import 'package:whatsup/gen/assets.gen.dart';
 import 'package:whatsup/model/usermodel.dart';
@@ -84,13 +86,26 @@ class MainScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(userContactController.contactList[index].name),
-                  Text("data"),
+                  Text(userContactController.contactList[index].name,style: usernameTextStyle,),
+                  Text("data",style: messageTextStyle,),
                 ],
               )
             ],
           )
            
+          , Column(children: [
+              Text("17:45",style: timeTextStyle,),
+                  Text("data",style: messageTextStyle,),
+                  Container(
+                    height: 18,
+                    width: 18,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: badg,
+                    ),
+                    child: Center(child: Text("1"),),
+                  )
+           ],)
         ]
       ),
     );
