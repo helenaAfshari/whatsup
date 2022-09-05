@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:whatsup/component/theme.dart';
+import 'package:whatsup/constance/whatsup_color.dart';
 import 'package:whatsup/model/usermodel.dart';
+import 'package:whatsup/view/contact_list.dart';
 import 'package:whatsup/view/main_screen.dart';
 
 void main() async {
@@ -9,22 +12,19 @@ void main() async {
   
   Hive.registerAdapter(UserModelAdapter());
   
-  runApp(const MyApp()); 
+  runApp( MyApp()); 
 
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  
+  var isDarkMode = true;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-  
-        primarySwatch: Colors.blue,
-      ),
+      theme: isDarkMode?darkMode():lightMode(),
       home:MainScreen(),
     );
   }
